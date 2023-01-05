@@ -3,7 +3,7 @@ from .models import *
 
 # Register your models here.
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('nombre','ig', 'sector', 'email', 'foto',)
+    list_display = ('nombre','ig', 'categoria', 'email', 'foto',)
 
 class EstadoAdmin(admin.ModelAdmin):
     list_display = ('nombre',)
