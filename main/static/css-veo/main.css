@@ -1,8 +1,23 @@
 :root{
-    --veo-blue: #e2e8fd;
+    --veo-blue: white;
     --veo-blue-dark: #68a6d5;
     --veo-red: #ca5733;
     --veo-yellow: #fbc61d;
     --veo-green: #3b914e;
     --purple-dark: #2f1c6a;
+}
+
+.carrusel-icon{
+
+    display: inline;
+    width: 40px;
+    text-align: center;
+    margin: 10px;
+    background-color: transparent;
+    border: none;
+}
+
+.carousel-control-prev-icon{
+     color: black!important;
+
 }
