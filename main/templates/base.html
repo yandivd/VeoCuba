@@ -11,8 +11,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{%static 'assets/img/favicon.png'%}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{%static '/img/veocubaFinalWhiteBG.png'%}" rel="icon">
+  <link href="{% static '/img/veocubaFinalWhiteBG.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   {% comment %} <link rel="preconnect" href="'https://fonts.googleapis.com"> {% endcomment %}
@@ -45,16 +45,16 @@
 
       <div class="profile my-4">
         <img src="../static/img/veocubaFinalWhiteBG.png" alt="logotipo" class="img-fluid rounded-circle">
-        <h1 class="text-light mt-4"><a href="{% url 'index' %}">Veo Cuba</a></h1>
+        <h1 class="text-light mt-4"><a href="{% url 'index' %}">Veocuba</a></h1>
       </div>
 
       <nav id="navbar" class="nav-menu navbar pt-2">
         <ul>
-          <li><a href="{% url 'index' %}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="{% url 'about' %}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About us</span></a></li>
+          <li><a href="{% url 'index' %}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>P&aacute;gina principal</span></a></li>
+          <li><a href="{% url 'about' %}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Sobre nosotros</span></a></li>
           <li><a href="" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Caract</span></a></li>
-          <li><a href="" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Images</span></a></li>
-          <li><a href="" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Offers</span></a></li>
+          <li><a href="" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Imagenes</span></a></li>
+          <li><a href="" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Ofertas</span></a></li>
 
 
         </ul>
@@ -65,7 +65,7 @@
   <!-- End Header -->
 
   <!-- ======= Main ======= -->
-  <div style="background-color: #040b14; height: 60px">
+  <div style="background-color: var(--veo-blue); height: 60px">
   </div>
   {%block content%}{%endblock%}
   <!-- End Main -->
@@ -81,8 +81,8 @@
       <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
     </div>
     <div class="text-white text-center">
-        <hr>
-        <span class="text-secondary">Copyright © 2022 Veo Cuba. All rights reserved.</span>
+        <hr style="color: var(--purple-dark)">
+        <span class="text-secondary">Copyright © 2022 Veocuba. All rights reserved.</span>
     </div>
 
   </footer>
