@@ -18,7 +18,7 @@
             <div class="carousel-inner">
               {% for i in fotos %}
             <div class="carousel-item active">
-              <img src="{{i.foto.url}}" alt="Los Angeles" class="d-block" style="width:100%">
+              <img src="{{i.foto.url}}" alt="{{i.nombre}}" class="d-block" style="width:100%">
             </div>
             {% endfor %}
             {% comment %} <div class="carousel-item">
