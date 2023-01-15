@@ -16,3 +16,7 @@ def about(request):
         'historia':historia,
     }
     return render(request, 'main/about.html', data)
+
+#este metodo es el encargado de renderizar los formularios para subir una foto
+def submission(request):
+    return render(request, 'main/submission.html')
