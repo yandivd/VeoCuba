@@ -22,6 +22,10 @@ class Imagen(models.Model):
     foto = models.ImageField(upload_to='fotos')
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.nombre
+    
+
     #models para el AboutUS
 
 class Datos_para_about(models.Model):
