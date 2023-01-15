@@ -7,6 +7,9 @@ class Estado(models.Model):
 
     def __str__(self):
         return self.nombre
+    class Meta:
+        verbose_name = 'Estado'
+        verbose_name_plural = 'Estados'
     
 
 class Imagen(models.Model):
@@ -24,6 +27,9 @@ class Imagen(models.Model):
 
     def __str__(self):
         return self.nombre
+    class Meta:
+        verbose_name = 'Imagen'
+        verbose_name_plural = 'Imagenes'
     
 
     #models para el AboutUS
@@ -53,9 +59,9 @@ class AboutUs(models.Model):
     sub4en = models.CharField(max_length=10000)
     texto4en = models.CharField(max_length=5000000)
     # imagen = models.ImageField(upload_to='about')
-    # class Meta:
-    #     verbose_name = 'Historia'
-    #     verbose_plural_name = 'Historias'
+    class Meta:
+        verbose_name = 'Historia'
+        verbose_name_plural = 'Historia'
 
 class Miembros(models.Model):
     imagen = models.ImageField(upload_to='miembros')
