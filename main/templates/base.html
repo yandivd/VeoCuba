@@ -5,6 +5,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+
 
   <title>VeoCuba</title>
   <meta content="" name="description">
@@ -40,21 +42,29 @@
 
 
   <!-- ======= Header ======= -->
-  <header id="header">
+  <header id="header" class="text-center ">
     <div class="d-flex flex-column">
 
       <div class="profile my-4">
         <img src="../static/img/veocubaFinalWhiteBG.png" alt="logotipo" class="img-fluid ">
-        <h1 class="text-light mt-4"><a href="{% url 'index' %}">Veocuba</a></h1>
       </div>
 
-      <nav id="navbar" class="nav-menu navbar mt-2">
+      <nav id="navbar" class="nav-menu navbar text-center mx-auto mt-2">
         <ul>
-          <li><a href="{% url 'index' %}" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>P&aacute;gina principal</span></a></li>
-          <li><a href="{% url 'about' %}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Sobre nosotros</span></a></li>
-          <li><a href="" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Caract</span></a></li>
-          <li><a href="" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Imagenes</span></a></li>
-          <li><a href="" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Ofertas</span></a></li>
+          <li><a href="{% url 'index' %}" class="nav-link scrollto link-index"><span>P&aacute;gina principal</span></a></li>
+            <li><a href="" class="nav-link scrollto link-submission"><span>Submission</span></a></li>
+            <li><a href="{% url 'about' %}" class="nav-link scrollto link-abous"><span>Sobre nosotros</span></a></li>
+          <li>
+            <div class="dropdown ">
+
+                <a href="" class="nav-link scrollto link-cont dropdown-toggle" data-bs-toggle="dropdown"><span>Cont&aacute;ctenos</span></a>
+
+                <ul class="dropdown-menu ps-2" style="border: none">
+                    <li><a class="dropdown-item" style="color: #bcbcbc" href="#">Contacto</a></li>
+                    <li><a class="dropdown-item" style="color: #bcbcbc" href="#">Ofectas labrales</a></li>
+                </ul>
+            </div>
+          </li>
 
 
         </ul>
@@ -64,25 +74,29 @@
   </header>
   <!-- End Header -->
 
-  <!-- ======= Main ======= -->
-  {%block content%}{%endblock%}
-  <!-- End Main -->
+  <div class="ms-5">
+     <!-- ======= Main ======= -->
+      {%block content%}{%endblock%}
+      <!-- End Main -->
 
 
-  <!-- ======= Footer ======= -->
-  <footer class="footer mt-5 ml-4 " style="padding-top: 0!important">
+      <!-- ======= Footer ======= -->
+      <footer class=" mt-5 pb-4 pt-0
+">
 
-    <div class="text-white text-center" style="margin-top: 7%">
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <span class="text-secondary">Copyright © 2022 Veocuba. All rights reserved.</span>
-    </div>
+        <div class="text-white text-center" style="margin-top: 7%; margin-left: 2%">
+            <a href="#" class="instagram"><i class="bx bxl-instagram" style="font-size: 28px; vertical-align: top"></i></a>
+            <span class="text-secondary" style="vertical-align: top">Copyright © 2023 Veocuba. All rights reserved.</span>
+        </div>
 
-  </footer>
-  <!-- End Footer -->
+      </footer>
+      <!-- End Footer -->
 
 
   <div id="preloader">
     <div class="line"></div>
+  </div>
+
   </div>
 
   <!-- Vendor JS Files -->

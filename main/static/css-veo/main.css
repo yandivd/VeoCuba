@@ -8,16 +8,38 @@
 }
 
 .carrusel-icon{
-
     display: inline;
     width: 40px;
     text-align: center;
-    margin: 10px;
+    margin: 0 1px;
     background-color: transparent;
     border: none;
 }
 
-.carousel-control-prev-icon{
-     color: black!important;
+.carrusel-veo-icon{
+    font-size: 30px;
+}
+
+a.link-index:hover{
+    color: var(--veo-yellow);!important;
+}
+a.link-abous:hover{
+    color: var(--veo-red);
+}
+a.link-submission:hover{
+    color: var(--veo-green);
+}
+a.link-cont:hover {
+    color: var(--veo-blue-dark);
+}
+
+
+
+@media  screen and (min-width: 1200px){
+    .about{
+      margin-left: 200px;
+}
 
 }
+
+
