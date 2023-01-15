@@ -35,7 +35,7 @@ class Imagen(models.Model):
 #     website = models.CharField(max_length=500)
 
 class AboutUs(models.Model):
-    sub1es = models.CharField(max_length=10000)
+    sub1es = models.CharField(max_length=10000, verbose_name='Subtitulo 1')
     texto1es = models.CharField(max_length=5000000)
     sub2es = models.CharField(max_length=10000)
     texto2es = models.CharField(max_length=5000000)
@@ -53,6 +53,9 @@ class AboutUs(models.Model):
     sub4en = models.CharField(max_length=10000)
     texto4en = models.CharField(max_length=5000000)
     # imagen = models.ImageField(upload_to='about')
+    # class Meta:
+    #     verbose_name = 'Historia'
+    #     verbose_plural_name = 'Historias'
 
 class Miembros(models.Model):
     imagen = models.ImageField(upload_to='miembros')
