@@ -28,16 +28,31 @@ class Imagen(models.Model):
 
     #models para el AboutUS
 
-class Datos_para_about(models.Model):
-    telf = models.CharField(max_length=15)
-    email = models.EmailField()
-    address = models.CharField(max_length=200)
-    website = models.CharField(max_length=500)
+# class Datos_para_about(models.Model):
+#     telf = models.CharField(max_length=15)
+#     email = models.EmailField()
+#     address = models.CharField(max_length=200)
+#     website = models.CharField(max_length=500)
 
 class AboutUs(models.Model):
-    texto1 = models.CharField(max_length=500)
-    texto2 = models.CharField(max_length=300)
-    imagen = models.ImageField(upload_to='about')
+    sub1es = models.CharField(max_length=10000)
+    texto1es = models.CharField(max_length=5000000)
+    sub2es = models.CharField(max_length=10000)
+    texto2es = models.CharField(max_length=5000000)
+    sub3es = models.CharField(max_length=10000)
+    texto3es = models.CharField(max_length=5000000)
+    sub4es = models.CharField(max_length=10000)
+    texto4es = models.CharField(max_length=5000000)
+    #######Seccion en Ingles#############
+    sub1en = models.CharField(max_length=10000)
+    texto1esn= models.CharField(max_length=5000000)
+    sub2en = models.CharField(max_length=10000)
+    texto2en = models.CharField(max_length=5000000)
+    sub3en = models.CharField(max_length=10000)
+    texto3en = models.CharField(max_length=5000000)
+    sub4en = models.CharField(max_length=10000)
+    texto4en = models.CharField(max_length=5000000)
+    # imagen = models.ImageField(upload_to='about')
 
 class Miembros(models.Model):
     imagen = models.ImageField(upload_to='miembros')
