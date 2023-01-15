@@ -12,7 +12,6 @@ def index(request):
 
 def about(request):
     historia = AboutUs.objects.all()[0]
-    print(historia)
     data = {
         'historia':historia,
     }
