@@ -1,0 +1,45 @@
+:root{
+    --veo-blue: white;
+    --veo-blue-dark: #68a6d5;
+    --veo-red: #ca5733;
+    --veo-yellow: #fbc61d;
+    --veo-green: #3b914e;
+    --purple-dark: #2f1c6a;
+}
+
+.carrusel-icon{
+    display: inline;
+    width: 40px;
+    text-align: center;
+    margin: 0 1px;
+    background-color: transparent;
+    border: none;
+}
+
+.carrusel-veo-icon{
+    font-size: 30px;
+}
+
+a.link-index:hover{
+    color: var(--veo-yellow);!important;
+}
+a.link-abous:hover{
+    color: var(--veo-red);
+}
+a.link-submission:hover{
+    color: var(--veo-green);
+}
+a.link-cont:hover {
+    color: var(--veo-blue-dark);
+}
+
+
+
+@media  screen and (min-width: 1200px){
+    .about{
+      margin-left: 200px;
+}
+
+}
+
+
