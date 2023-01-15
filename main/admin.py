@@ -18,5 +18,5 @@ class AboutUsAdmin(admin.ModelAdmin):
         verbose_plural_name = 'Historias'
 
 admin.site.register(Imagen, ImageAdmin)
-admin.site.register(Estado, EstadoAdmin)
+# admin.site.register(Estado, EstadoAdmin)
 admin.site.register(AboutUs, AboutUsAdmin)
