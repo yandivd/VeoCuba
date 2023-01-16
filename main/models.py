@@ -32,7 +32,7 @@ class Imagen(models.Model):
         verbose_name_plural = 'Imagenes'
     
 
-    #models para el AboutUS
+    #####models para el AboutUS####
 
 # class Datos_para_about(models.Model):
 #     telf = models.CharField(max_length=15)
