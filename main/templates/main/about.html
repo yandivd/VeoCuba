@@ -3,12 +3,12 @@
 {% block content %}
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about text-center px-5">
+    <section id="about" class="about text-center px-5  pb-0" >
       <div class="container">
-        <div class="section-title text-center">
-          <h2>La Historia</h2>
-          {% for i in historias %}
-          <h5>{{i.subtitulo}}</h5>
+        <h2 class="mb-5" style="color: var(--purple-dark); font-weight: bold">La Historia</h2>
+        {% for i in historias %}
+        <div class="section-title text-center mt-2">
+          <h5 style="font-weight: bold">{{i.subtitulo}}</h5>
           <p>{{i.texto}}</p>
         </div>
         {% endfor %}

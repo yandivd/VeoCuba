@@ -9,8 +9,13 @@ from django.conf import settings
 def index(request):
     estado1 = Estado.objects.get(nombre='ok')
     fotos = Imagen.objects.all().filter(estado=estado1)
+    menor = 9999999999999
+    for i in fotos:
+        if i.id<menor:
+            menor=i.id
     data={
         'fotos': fotos,
+        'menor': menor,
     }
     return render(request, 'main/index.html', data)
 
