@@ -2,7 +2,7 @@
   {% load static %}
   {% block content %}
     <!-- Main -->
-    <main id="main" class="mt-5 pt-4 pt-lg-0">
+    <main id="main" class="mt-5 py-5 pt-lg-0">
 
         <div id="demo" class="position-static carousel slide m-auto overflow-hidden" data-bs-ride="carousel"
             style="max-height: 500px; border-radius: 5px; width: 90%">
@@ -17,17 +17,18 @@
           <!-- The slideshow/carousel -->
             <div class="carousel-inner">
               {% for i in fotos %}
-            <div class="carousel-item active">
-              <img src="{{i.foto.url}}" alt="{{i.nombre}}" class="d-block" style="width:100%">
+                <div class="carousel-item {% if i.id == menor %} active {% endif %}">
+                    <img src="{{i.foto.url}}" alt="{{i.nombre}}" class="d-block" style="width:100%">
+                 </div>
+                {% endfor %}
+
+{#                <div class="carousel-item active">#}
+{#                  <img src="../../../media/fotos/game-of-thrones_3200x2560_xtrafondos.com.jpg" alt="Chicago" class="d-block" style="width:100%">#}
+{#                </div>#}
+{#                <div class="carousel-item">#}
+{#                  <img src="../../../media/fotos/a7fcaa43650adc892c401956a08dc32a.jpg" alt="New York" class="d-block" style="width:100%">#}
+{#                </div>#}
             </div>
-            {% endfor %}
-            {% comment %} <div class="carousel-item">
-              <img src="../../../media/fotos/game-of-thrones_3200x2560_xtrafondos.com.jpg" alt="Chicago" class="d-block" style="width:100%">
-            </div>
-            <div class="carousel-item">
-              <img src="../../../media/fotos/a7fcaa43650adc892c401956a08dc32a.jpg" alt="New York" class="d-block" style="width:100%">
-            </div> {% endcomment %}
-          </div>
 
           <!-- Left and right controls/icons -->
             <div class="text-center position-absolute" style="bottom: 28%; right: 40%">

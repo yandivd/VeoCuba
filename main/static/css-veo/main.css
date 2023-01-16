@@ -80,5 +80,28 @@ a.link-dropdown:hover {
     }
 }
 
+.send-email{
+     width: 100%;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+}
 
+.send-email label {
+  padding-bottom: 8px;
+}
 
+.send-email input,
+.send-email textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.send-email input {
+  height: 44px;
+}
+
+.send-email textarea {
+  padding: 10px 15px;
+}
