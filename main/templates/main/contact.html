@@ -3,45 +3,19 @@
 {% block content %}
 
         <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact text-center">
-      <div class="container">
+        <form action="" method="post">
+        {% csrf_token %}
+        <label for="id_name">Name:</label><input type="text" name="name" maxlength="50" required="" id="id_name">
+        <label for="id_email">Email:</label><input type="email" name="email" maxlength="254" required="" id="id_email">
+        <label for="id_message">Message:</label><textarea name="message" cols="40" rows="10" required="" id="id_message"></textarea>
+        
 
-        <div class="section-title">
-          <h2>Contacto</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row text-center" data-aos="fade-in">
-
-          <div class="text-center mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
+<div class="d-flex justify-content-end">
+  <button type="reset" value="Cancelar" class="btn btn-secondary">Cancelar</button><!---El tipo submit es el q recarga la pag y envia los datos-->
+  &nbsp;
+  <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button><!--El tipo submit es el q recarga la pag y envia los datos-->
+</div>
+</form>
 
 {% endblock %}
 

@@ -15,6 +15,10 @@ class AboutUsAdmin(admin.ModelAdmin):
         verbose_name = 'Historia'
         verbose_plural_name = 'Historias'
 
+class ContactoAdmin(admin.ModelAdmin):
+    list_display = ('name','email','message',)
+
 admin.site.register(Imagen, ImageAdmin)
 # admin.site.register(Estado, EstadoAdmin)
 admin.site.register(AboutUs, AboutUsAdmin)
+admin.site.register(Contacto, ContactoAdmin)
