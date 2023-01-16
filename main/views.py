@@ -11,12 +11,7 @@ def index(request):
     return render(request, 'main/index.html', data)
 
 def about(request):
-    historia = AboutUs.objects.all()[0]
-    data = {
-        'historia':historia,
-    }
-    return render(request, 'main/about.html', data)
+    return render(request, 'main/about.html')
 
-#este metodo es el encargado de renderizar los formularios para subir una foto
-def submission(request):
-    return render(request, 'main/submission.html')
+def contact(request):
+    return render(request, 'main/contact.html')
