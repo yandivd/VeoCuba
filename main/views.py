@@ -11,9 +11,9 @@ def index(request):
     return render(request, 'main/index.html', data)
 
 def about(request):
-    historia = AboutUs.objects.all()[0]
+    historia = AboutUs.objects.all()
     data = {
-        'historia':historia,
+        'historias':historia,
     }
     return render(request, 'main/about.html', data)
 

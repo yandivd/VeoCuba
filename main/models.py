@@ -41,27 +41,11 @@ class Imagen(models.Model):
 #     website = models.CharField(max_length=500)
 
 class AboutUs(models.Model):
-    sub1es = models.CharField(max_length=10000, verbose_name='Subtitulo 1 esp')
-    texto1es = models.TextField(verbose_name='Texto 1 esp')
-    sub2es = models.CharField(max_length=10000, verbose_name='Subtitulo 2 esp')
-    texto2es = models.TextField(verbose_name='Texto 2 esp')
-    sub3es = models.CharField(max_length=10000, verbose_name='Subtitulo 3 esp')
-    texto3es = models.TextField(verbose_name='Texto 3 esp')
-    sub4es = models.CharField(max_length=10000, verbose_name='Subtitulo 4 esp')
-    texto4es = models.TextField(verbose_name='Texto 4 esp')
-    #######Seccion en Ingles#############
-    sub1en = models.CharField(max_length=10000, verbose_name='Subtitulo 1 ing')
-    texto1esn= models.TextField(verbose_name='Texto 1 ing')
-    sub2en = models.CharField(max_length=10000, verbose_name='Subtitulo 2 ing')
-    texto2en = models.TextField(verbose_name='Texto 2 ing')
-    sub3en = models.CharField(max_length=10000, verbose_name='Subtitulo 3 ing')
-    texto3en = models.TextField(verbose_name='Texto 3 ing')
-    sub4en = models.CharField(max_length=10000, verbose_name='Subtitulo 4 ing')
-    texto4en = models.TextField(verbose_name='Texto 4 ing')
-    # imagen = models.ImageField(upload_to='about')
+    subtitulo = models.CharField(max_length=100, verbose_name='subtitulo')
+    texto = models.TextField(verbose_name= 'texto')
     class Meta:
         verbose_name = 'Historia'
-        verbose_name_plural = 'Historia'
+        verbose_name_plural = 'Historias'
 
 class Miembros(models.Model):
     imagen = models.ImageField(upload_to='miembros')
