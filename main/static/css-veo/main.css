@@ -1,3 +1,8 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
 :root{
     --veo-blue: white;
     --veo-blue-dark: #68a6d5;
@@ -19,27 +24,61 @@
 .carrusel-veo-icon{
     font-size: 30px;
 }
+a.nav-link-vea{
+    transition-duration: 0.3s;
+    transition-property: all;
+    transition-timing-function: linear;
+}
+a.nav-link-vea:hover{
+    color: white;
+    transition-duration: 0.3s;
+    transition-property: all;
+    transition-timing-function: linear;
+}
 
 a.link-index:hover{
-    color: var(--veo-yellow);!important;
+    background-color: var(--veo-yellow);!important;
 }
+
 a.link-abous:hover{
-    color: var(--veo-red);
+    background-color: var(--veo-red);
 }
+
 a.link-submission:hover{
-    color: var(--veo-green);
+    background-color: var(--veo-green);
+    text-align: center!important;
 }
+
 a.link-cont:hover {
-    color: var(--veo-blue-dark);
+    background-color: var(--veo-blue-dark);
+}
+a.link-cont:active {
+    background-color: var(--veo-blue-dark);
+}
+
+a.link-dropdown:hover {
+    background-color: #c8c8c8;
+    border: 1px solid black;
 }
 
 
-
+@media  screen and (min-width: 700px){
+    .about {
+        margin-left: 0;
+    }
+    .contact {
+        margin-left: 0;
+    }
+}
 @media  screen and (min-width: 1200px){
-    .about{
-      margin-left: 200px;
+    .about {
+        margin-left: 200px;
+    }
+    .contact {
+        width: 70%;
+        margin-left: 280px;
+    }
 }
 
-}
 
 
