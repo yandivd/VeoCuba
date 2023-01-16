@@ -49,19 +49,19 @@
         <img src="../static/img/veocubaFinalWhiteBG.png" alt="logotipo" class="img-fluid ">
       </div>
 
-      <nav id="navbar" class="nav-menu navbar text-center mx-auto mt-2">
+      <nav id="navbar" class="nav-menu navbar text-center mx-auto mt-5">
         <ul>
-          <li><a href="{% url 'index' %}" class="nav-link scrollto link-index"><span>P&aacute;gina principal</span></a></li>
-            <li><a href="" class="nav-link scrollto link-submission"><span>Submission</span></a></li>
-            <li><a href="{% url 'about' %}" class="nav-link scrollto link-abous"><span>Sobre nosotros</span></a></li>
+          <li><a href="{% url 'index' %}" class="nav-link scrollto nav-link-vea link-index"><span>Vistas</span></a></li>
+            <li><a href="{% url 'about' %}" class="nav-link scrollto nav-link-vea link-abous"><span>La historia</span></a></li>
+            <li><a href="" class="nav-link scrollto nav-link-vea link-submission"><span>Submission</span></a></li>
+
           <li>
             <div class="dropdown ">
 
-                <a href="" class="nav-link scrollto link-cont dropdown-toggle" data-bs-toggle="dropdown"><span>Cont&aacute;ctenos</span></a>
-
+                <a href="" class="nav-link link-cont nav-link-vea dropdown-toggle" data-bs-toggle="dropdown"><span>Cont&aacute;ctenos</span></a>
                 <ul class="dropdown-menu ps-2" style="border: none">
-                    <li><a class="dropdown-item" style="color: #bcbcbc" href="#">Contacto</a></li>
-                    <li><a class="dropdown-item" style="color: #bcbcbc" href="#">Ofectas labrales</a></li>
+                    <li><a class="dropdown-item link-dropdown nav-link-vea" href="{% url 'contact' %}">Contacto</a></li>
+                    <li><a class="dropdown-item link-dropdown nav-link-vea"  href="#">Ofectas labrales</a></li>
                 </ul>
             </div>
           </li>
@@ -74,17 +74,16 @@
   </header>
   <!-- End Header -->
 
-  <div class="ms-5">
+  <div>
      <!-- ======= Main ======= -->
       {%block content%}{%endblock%}
       <!-- End Main -->
 
 
       <!-- ======= Footer ======= -->
-      <footer class=" mt-5 pb-4 pt-0
-">
+      <footer class="pb-4">
 
-        <div class="text-white text-center" style="margin-top: 7%; margin-left: 2%">
+        <div class="text-white text-center" style="margin-left: 17%">
             <a href="#" class="instagram"><i class="bx bxl-instagram" style="font-size: 28px; vertical-align: top"></i></a>
             <span class="text-secondary" style="vertical-align: top">Copyright © 2023 Veocuba. All rights reserved.</span>
         </div>
