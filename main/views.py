@@ -4,6 +4,7 @@ from .forms import *
 import smtplib
 from email.mime.text import MIMEText
 from django.conf import settings
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -40,7 +41,9 @@ def contact(request):
             email=formulario.cleaned_data['email']
             texto=formulario.cleaned_data['message']
             formulario.save()
-            send_emailC(email, texto)
+            # send_emailC(email, texto)
+            messages.success(request, "Gracias por contactarme")
+            print(messages)
             return redirect(to='index')
         else:
             data['form']=formulario

@@ -30,6 +30,9 @@
   <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
   <link href="{% static 'css-veo/main.css' %}" rel="stylesheet">
 
+    <!--Sweetalert 2-->
+    <link rel="stylesheet" href="{% static 'sweetalert2/sweetalert2.min.css' %}">
+
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
@@ -105,9 +108,26 @@
   <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
   <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
 
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!--Sweet Alert 2-->
+  <script src="{% static 'sweetalert2/sweetalert2.all.min.js' %}"></script>
+  <script src="{% static 'sweetalert2/sweetalert2.min.css' %}"></script>
+
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
 
+  {% if messages %}
+      {% for m in messages %}
+          <script>
+            Swal.fire({
+                  icon: 'success',
+                  title: 'Muchas Gracias',
+                  text: '{{ m }}',
+                })
+          </script>
+      {% endfor %}
+  {% endif %}
 </body>
 
 </html>
