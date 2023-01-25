@@ -5,7 +5,7 @@ class ImagenForm(forms.ModelForm):
     
     class Meta:
         model = Imagen
-        fields = '__all__'
+        fields = 'nombre','ig','categoria','provincia','municipio','referencia','email','telf','direccion','foto'
 
 class ContactoForm(forms.ModelForm):
 

@@ -29,7 +29,35 @@ def about(request):
 
 #este metodo es el encargado de renderizar los formularios para subir una foto
 def submission(request):
-    return render(request, 'main/submission.html')
+
+    data={
+        'form': ImagenForm()
+    }
+    if(request.method == 'POST'):
+        formulario = ImagenForm(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            try:
+                estado1 = Estado.objects.get(nombre='revisar')
+            except:
+                print("No existe estado con ese nombre")
+            imagen1 = Imagen(nombre=formulario.cleaned_data['nombre'],
+            ig=formulario.cleaned_data['ig'], 
+            categoria=formulario.cleaned_data['categoria'],
+            provincia=formulario.cleaned_data['provincia'], 
+            municipio=formulario.cleaned_data['municipio'], 
+            referencia=formulario.cleaned_data['referencia'],
+            email=formulario.cleaned_data['email'], 
+            telf=formulario.cleaned_data['telf'], 
+            direccion=formulario.cleaned_data['direccion'],
+            foto=formulario.cleaned_data['foto'],
+            estado=estado1)
+            imagen1.save()
+            print("salvado")
+            return redirect('index')
+        else:
+            data['form'] = formulario
+
+    return render(request, 'main/submission.html',data)
 
 def contact(request):
     data = {
