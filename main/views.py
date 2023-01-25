@@ -77,28 +77,3 @@ def send_emailC(email,texto):
 
     except Exception as e:
         print(e)
-
-#correo para cuando contacten
-def send_email(asunto, usuario, link):
-    try:
-        mailServer = smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT)
-        print(mailServer.ehlo())
-        mailServer.starttls()
-        print(mailServer.ehlo())
-        mailServer.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
-        print('Conectado...')
-
-        email_to='yandivd@gmail.com'
-
-        #construir el mensaje
-        mensaje= MIMEText(usuario+""" ha dejado un testimonio acerca de ti. Entre al siguiente
-                            link para acceder: """+ link)
-        mensaje['From'] = settings.EMAIL_HOST_USER
-        mensaje['To'] = email_to
-        mensaje['Subject'] = asunto
-
-        mailServer.sendmail(settings.EMAIL_HOST_USER,email_to, mensaje.as_string())
-        print("Correo enviado")
-
-    except Exception as e:
-        print(e)
