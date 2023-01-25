@@ -52,7 +52,6 @@ def submission(request):
             foto=formulario.cleaned_data['foto'],
             estado=estado1)
             imagen1.save()
-            print("salvado")
             return redirect('index')
         else:
             data['form'] = formulario
