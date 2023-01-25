@@ -41,6 +41,7 @@ def contact(request):
             email=formulario.cleaned_data['email']
             texto=formulario.cleaned_data['message']
             formulario.save()
+            ###llamada al metodo de enviar el correo
             # send_emailC(email, texto)
             messages.success(request, "Gracias por contactarme")
             print(messages)
