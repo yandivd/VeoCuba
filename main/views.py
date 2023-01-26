@@ -37,26 +37,32 @@ def submission(request):
     if(request.method == 'POST'):
         formulario = ImagenForm(data=request.POST, files=request.FILES)
         if formulario.is_valid():
-            try:
-                estado1 = Estado.objects.get(nombre='revisar')
-            except:
-                print("No existe estado con ese nombre")
-            imagen1 = Imagen(nombre=formulario.cleaned_data['nombre'],
-            ig=formulario.cleaned_data['ig'], 
-            categoria=formulario.cleaned_data['categoria'],
-            provincia=provinciasArray[int(formulario.cleaned_data['provincia'])], 
-            municipio=formulario.cleaned_data['municipio'], 
-            referencia=formulario.cleaned_data['referencia'],
-            email=formulario.cleaned_data['email'], 
-            telf=formulario.cleaned_data['telf'], 
-            direccion=formulario.cleaned_data['direccion'],
-            foto=formulario.cleaned_data['foto'],
-            estado=estado1)
-            imagen1.save()
-            ###llamada al metodo de enviar el correo
-            #send_emailI(imagen1)
-            messages.success(request, "Gracias por compartir su imagen con nosotros.")
-            return redirect('index')
+            print(type(formulario.cleaned_data['foto'].size))
+            ### validar las imagenes actual: imagen > 2mb ###
+            if formulario.cleaned_data['foto'].size < 2097152:
+                data["form"] = formulario
+                return render(request, 'main/submission.html',data)
+            else:
+                try:
+                    estado1 = Estado.objects.get(nombre='revisar')
+                except:
+                    print("No existe estado con ese nombre")
+                imagen1 = Imagen(nombre=formulario.cleaned_data['nombre'],
+                ig=formulario.cleaned_data['ig'], 
+                categoria=formulario.cleaned_data['categoria'],
+                provincia=provinciasArray[int(formulario.cleaned_data['provincia'])], 
+                municipio=formulario.cleaned_data['municipio'], 
+                referencia=formulario.cleaned_data['referencia'],
+                email=formulario.cleaned_data['email'], 
+                telf=formulario.cleaned_data['telf'], 
+                direccion=formulario.cleaned_data['direccion'],
+                foto=formulario.cleaned_data['foto'],
+                estado=estado1)
+                imagen1.save()
+                ###llamada al metodo de enviar el correo
+                #send_emailI(imagen1)
+                messages.success(request, "Gracias por compartir su imagen con nosotros.")
+                return redirect('index')
         else:
             data['form'] = formulario
 
