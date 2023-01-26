@@ -52,6 +52,9 @@ def submission(request):
             foto=formulario.cleaned_data['foto'],
             estado=estado1)
             imagen1.save()
+            ###llamada al metodo de enviar el correo
+            #send_emailI(imagen1)
+            messages.success(request, "Gracias por compartir su imagen con nosotros.")
             return redirect('index')
         else:
             data['form'] = formulario
@@ -95,6 +98,40 @@ def send_emailC(email,texto):
         #construir el mensaje
         mensaje= MIMEText("""Alguien ha hecho contacto contigo a traves de tu sitio Web.  """+
                         "Correo: "+email+' '+"Mensaje: "+texto )
+        mensaje['From'] = settings.EMAIL_HOST_USER
+        mensaje['To'] = email_to
+        mensaje['Subject'] = 'Te han dejado un mensaje'
+
+        mailServer.sendmail(settings.EMAIL_HOST_USER,email_to, mensaje.as_string())
+        print("Correo enviado")
+
+    except Exception as e:
+        print(e)
+
+##### Funcion para el envio de correo con la imagen #########
+def send_emailI(foto):
+    try:
+        mailServer = smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT)
+        print(mailServer.ehlo())
+        mailServer.starttls()
+        print(mailServer.ehlo())
+        mailServer.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
+        print('Conectado...')
+
+        ####cambiar el correo para el del que lo recive
+        email_to='yandivd@gmail.com'
+
+        #construir el mensaje
+        mensaje= MIMEText("""Se ha publicado una imagen.  """+
+                        "Nombre: "+foto.nombre+' '+"Instagram: "+
+                        foto.ig+' '+"Categoria: "+foto.categoria+
+                        ' '+"Provincia: "+foto.provincia+
+                        ' '+"Municipio: "+foto.municipio+
+                        ' '+"Escucho sobre nosotros mediante: "+foto.referencia+
+                        ' '+"Correo: "+foto.email+
+                        ' '+"Telefono: "+foto.telf+
+                        ' '+"Direccion: "+foto.direccion+
+                        ' '+"Imagen: "+"localhost:8000/"+foto.foto.url)
         mensaje['From'] = settings.EMAIL_HOST_USER
         mensaje['To'] = email_to
         mensaje['Subject'] = 'Te han dejado un mensaje'
