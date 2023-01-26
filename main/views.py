@@ -38,6 +38,7 @@ def submission(request):
         formulario = ImagenForm(data=request.POST, files=request.FILES)
         if formulario.is_valid():
             print(type(formulario.cleaned_data['foto'].size))
+            ### validar las imagenes actual: imagen > 2mb ###
             if formulario.cleaned_data['foto'].size < 2097152:
                 data["form"] = formulario
                 return render(request, 'main/submission.html',data)
