@@ -30,6 +30,7 @@ def about(request):
 #este metodo es el encargado de renderizar los formularios para subir una foto
 def submission(request):
 
+    provinciasArray=['','Pinar del Rio', 'Artemisa', 'La Habana', 'Mayabeque','Matanzas','Villa Clara', 'Cienfuegos','Sancti Spíritus','Ciego de Ávila','Camagüey','Las Tunas','Holguín','Granma','Santiago de Cuba','Guantánamo','Isla de la Juventud']
     data={
         'form': ImagenForm()
     }
@@ -43,7 +44,7 @@ def submission(request):
             imagen1 = Imagen(nombre=formulario.cleaned_data['nombre'],
             ig=formulario.cleaned_data['ig'], 
             categoria=formulario.cleaned_data['categoria'],
-            provincia=formulario.cleaned_data['provincia'], 
+            provincia=provinciasArray[int(formulario.cleaned_data['provincia'])], 
             municipio=formulario.cleaned_data['municipio'], 
             referencia=formulario.cleaned_data['referencia'],
             email=formulario.cleaned_data['email'], 
