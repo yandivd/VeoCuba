@@ -24,18 +24,31 @@ body{
 .carrusel-veo-icon{
     font-size: 30px;
 }
-a.nav-link-vea{
+.nav-link-vea{
+    margin-left: 13px;
+    border-radius: 10px;
     transition-duration: 0.3s;
     transition-property: all;
     transition-timing-function: linear;
 }
-a.nav-link-vea:hover{
+.nav-link-vea:hover{
     color: white;
     transition-duration: 0.3s;
     transition-property: all;
     transition-timing-function: linear;
 }
+.link-cont {
+    color: black;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: transparent;
+    text-align: left;
+    padding: 8px 10px!important;
+    border: none;
 
+}
 a.link-index:hover{
     background-color: var(--veo-yellow);!important;
 }
@@ -46,19 +59,22 @@ a.link-abous:hover{
 
 a.link-submission:hover{
     background-color: var(--veo-green);
-    text-align: center!important;
 }
 
-a.link-cont:hover {
+.link-cont:hover {
     background-color: var(--veo-blue-dark);
 }
-a.link-cont:active {
-    background-color: var(--veo-blue-dark);
+
+.link-cont:focus {
+    color: white!important;
+    background-color: var(--veo-blue-dark) !important;
 }
+
+
 
 a.link-dropdown:hover {
+    text-shadow: 2px 2px 2px black;
     background-color: #c8c8c8;
-    border: 1px solid black;
 }
 
 
