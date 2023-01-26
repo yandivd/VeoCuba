@@ -1,10 +1,122 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block js %}
+<script>
+    var municipios_1=new Array("----------","Pinar del Rio","Consolacion del Sur","San Juan y Martinez","Sandino","Los Palacios","Guane","La Palma","Minas de Matahambre","San Luis","Vinales","Mantua");
+    var municipios_2=new Array("----------","Artemisa","Guanajay","Caimito","Bauta","San Cristobal","Candelaria","Bahia Honda","Mariel","Alquizar","Guira de Melena","San Antonio");
+    var municipios_3=new Array("----------","Playa","Plaza de la Revolución","Centro Habana","La Habana Vieja","Regla","La Habana del Este","Guanabacoa","San Miguel del Padrón","Diez de Octubre","Cerro","Marianao","La Lisa","Boyeros","Arroyo Naranjo","Cotorro");
+    var municipios_4=new Array("----------","Bejucal","San José de las Lajas","Jaruco","Santa Cruz del Norte","Madruga","Nueva Paz","San Nicolás","Güines","Melena del Sur","Batabanó","Quivicán");
+    var municipios_5=new Array("----------","Matanzas","Cárdenas","Martí","Colón","Perico","Jovellanos","Pedro Betancourt","Limonar","Unión de Reyes","Ciénaga de Zapata","Jagüey Grande","Calimete","Los Arabos");
+    var municipios_6=new Array("----------","Corralillo","Quemado de Güines","Sagua la Grande","Encrucijada","Camajuaní","Caibarién","Remedios","Placetas","Santa Clara","Cifuentes","Santo Domingo","Ranchuelo","Manicaragua");
+    var municipios_7=new Array("----------","Aguada de Pasajeros","Rodas","Palmira","Lajas","Cruces","Cumanayagua","Cienfuegos","Abreus");
+    var municipios_8=new Array("----------","Yaguajay","Jatibonico","Taguasco","Cabaiguán","Fomento","Trinidad","Sancti Spíritus","La Sierpe");
+    var municipios_9=new Array("----------","Chambas","Morón","Bolivia","Primero de Enero","Ciro Redondo","Florencia","Majagua","Ciego de Ávila","Venezuela","Baraguá");
+    var municipios_10=new Array("----------","Carlos Manuel de Céspedes","Esmeralda","Sierra de Cubitas","Minas","Nuevitas","Guáimaro","Sibanicú","Camagüey","Florida","Vertientes","Jimaguayú","Najasa","Santa Cruz del Sur");
+    var municipios_11=new Array("----------","Manatí","Puerto Padre","Jesús Menéndez","Majibacoa","Las Tunas","Jobabo","Colombia","Amancio");
+    var municipios_12=new Array("----------","Gibara","Rafael Freyre","Banes","Antilla","Báguanos","Holguín","Calixto García","Cacocum","Urbano Noris","Cueto","Mayarí","Frank País","Sagua de Tánamo","Moa");
+    var municipios_13=new Array("----------","Río Cauto","Cauto Cristo","Jiguaní","Bayamo","Yara","Manzanillo","Campechuela","Media Luna","Niquero","Pilón","Bartolomé Masó","Buey Arriba","Guisa");
+    var municipios_14=new Array("----------","Contramaestre","Mella","San Luis","Segundo Frente","Songo - La Maya","Santiago de Cuba","Palma Soriano","Tercer Frente","Guamá");
+    var municipios_15=new Array("----------","El Salvador","Manuel Tames","Yateras","Baracoa","Maisí","Imías","San Antonio del Sur","Caimanera","Guantánamo","Niceto Pérez");
+    var municipios_16=new Array("----------","Isla de la Juventud");
+    
+    var todasMunicipios = [
+        [],
+        municipios_1,
+        municipios_2,
+        municipios_3,
+        municipios_4,
+        municipios_5,
+        municipios_6,
+        municipios_7,
+        municipios_8,
+        municipios_9,
+        municipios_10,
+        municipios_11,
+        municipios_12,
+        municipios_13,
+        municipios_14,
+        municipios_15,
+        municipios_16,
+        ];
+    
+      function cambia_provincia(){
+           //tomo el valor del select de la provincia elegida 
+           var pais 
+           pais = document.f1.provincia[document.f1.provincia.selectedIndex].value 
+           //miro a ver si la provincia está definido 
+           if (pais != 0) { 
+              //si estaba definida, entonces coloco las opciones de la provincia correspondiente. 
+              //selecciono el array de municipio adecuado 
+              mis_municipios=todasMunicipios[pais]
+              //calculo el numero de municipios 
+              num_municipios = mis_municipios.length 
+              //marco el número de municipios en el select 
+              document.f1.municipio.length = num_municipios
+              //para cada municipio del array, la introduzco en el select 
+              for(i=0;i<num_municipios;i++){ 
+                 document.f1.municipio.options[i].value=mis_municipios[i]
+                 document.f1.municipio.options[i].text=mis_municipios[i]
+              }	
+           }else{ 
+              //si no había provincia seleccionada, elimino los municipios del select 
+              document.f1.municipio.length = 1
+              //coloco un guión en la única opción que he dejado 
+              document.f1.municipio.options[0].value = ">----------"
+              document.f1.municipio.options[0].text = ">----------"
+           } 
+           //marco como seleccionada la opción primera de municipio 
+           document.f1.municipio.options[0].selected = true
+    }
+    
+</script>
+{% endblock %}
 {% block content %}
 <div class="container contact">
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" name="f1">
     {% csrf_token %}
-{{form}}
+    <label for="id_nombre">Nombre:</label><input type="text" name="nombre" maxlength="50" required="" id="id_nombre">
+    <label for="id_ig">Ig:</label><input type="text" name="ig" maxlength="500" required="" id="id_ig">
+    <label for="id_categoria">Categoria:</label><input type="text" name="categoria" maxlength="50" required="" id="id_categoria">
+    
+ <!---Provincia-->
+ <div class="form-group row">
+    <label class="col-sm-4 col-form-label">Provincia:</label>
+        <div class="col-sm-5">
+            <select class="select form-control" name=provincia onchange="cambia_provincia()"> 
+            <option value="0" selected>---------- 
+            <option value="1">Pinar del Río 
+            <option value="2">Artemisa 
+            <option value="3">La Habana 
+            <option value="4">Mayabeque
+            <option value="5">Matanzas 
+            <option value="6">Villa Clara
+            <option value="7">Cienfuegos
+            <option value="8">Sancti Spíritus
+            <option value="9">Ciego de Ávila
+            <option value="10">Camagüey
+            <option value="11">Las Tunas 
+            <option value="12">Holguín  
+            <option value="13">Granma   
+            <option value="14">Santiago de Cuba  
+            <option value="15">Guantánamo   
+            <option value="16">Isla de la Juventud   
+            </select>
+        </div>
+</div>
+<input type="text" name="prov" id="" hidden value="">
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">Municipio:</label>
+        <div class="col-sm-5">
+            <select class="select form-control" name=municipio> 
+            <option value="-"> 
+            </select>
+        </div>
+</div>
+    <label for="id_referencia">Referencia:</label><input type="text" name="referencia" maxlength="500" required="" id="id_referencia">
+    <label for="id_email">Email:</label><input type="email" name="email" maxlength="254" required="" id="id_email">
+    <label for="id_telf">Telf:</label><input type="text" name="telf" maxlength="15" required="" id="id_telf">
+    <label for="id_direccion">Direccion:</label><input type="text" name="direccion" maxlength="100" required="" id="id_direccion">
+    <label for="id_foto">Foto:</label><input type="file" name="foto" accept="image/*" required="" id="id_foto">
 <button type="submit">Aceptar</button>
 </form>
 </div>
