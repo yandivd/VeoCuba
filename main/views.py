@@ -43,7 +43,7 @@ def submission(request):
             imagen1 = Imagen(nombre=formulario.cleaned_data['nombre'],
             ig=formulario.cleaned_data['ig'], 
             categoria=formulario.cleaned_data['categoria'],
-            provincia=formulario.cleaned_data['provincia'], 
+            provincia=formulario.cleaned_data['provincia'].text, 
             municipio=formulario.cleaned_data['municipio'], 
             referencia=formulario.cleaned_data['referencia'],
             email=formulario.cleaned_data['email'], 
