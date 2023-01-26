@@ -56,7 +56,7 @@
         <ul>
           <li><a href="{% url 'index' %}" class="nav-link scrollto nav-link-vea link-index"><span>Vistas</span></a></li>
             <li><a href="{% url 'about' %}" class="nav-link scrollto nav-link-vea link-abous"><span>La historia</span></a></li>
-            <li><a href="" class="nav-link scrollto nav-link-vea link-submission"><span>Submission</span></a></li>
+            <li><a href="{% url 'submission' %}" class="nav-link scrollto nav-link-vea link-submission"><span>Submission</span></a></li>
 
           <li>
             <div class="dropdown ">
@@ -108,11 +108,10 @@
   <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
   <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
 
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <!--Sweet Alert 2-->
   <script src="{% static 'sweetalert2/sweetalert2.all.min.js' %}"></script>
   <script src="{% static 'sweetalert2/sweetalert2.min.css' %}"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
