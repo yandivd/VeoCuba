@@ -64,3 +64,18 @@ class Contacto(models.Model):
 
     def __str__(self):
         return self.name
+
+class Tamanno(models.Model):
+    name = models.CharField(max_length=10)
+    capacidad = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+class Calidad_Permitida(models.Model):
+    capacidad = models.ForeignKey(to=Tamanno, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.capacidad.name
+    
+    

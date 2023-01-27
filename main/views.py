@@ -41,7 +41,8 @@ def submission(request):
         if formulario.is_valid():
             print(type(formulario.cleaned_data['foto'].size))
             ### validar las imagenes actual: imagen > 2mb ###
-            if formulario.cleaned_data['foto'].size < 2097152:
+            calidad = Calidad_Permitida.objects.get(pk=1)
+            if formulario.cleaned_data['foto'].size < calidad.capacidad.capacidad:
                 data["form"] = formulario
                 return render(request, 'main/submission.html',data)
             else:
