@@ -8,5 +8,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('submission/', views.submission, name='submission'),
+    path('test/',views.test, name="test" ),
 ]
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -3,8 +3,10 @@ from .models import *
 from .forms import *
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from django.conf import settings
 from django.contrib import messages
+from django.template.loader import render_to_string
 
 # Create your views here.
 def index(request):
@@ -39,7 +41,8 @@ def submission(request):
         if formulario.is_valid():
             print(type(formulario.cleaned_data['foto'].size))
             ### validar las imagenes actual: imagen > 2mb ###
-            if formulario.cleaned_data['foto'].size < 2097152:
+            calidad = Calidad_Permitida.objects.get(pk=1)
+            if formulario.cleaned_data['foto'].size < calidad.capacidad.capacidad:
                 data["form"] = formulario
                 return render(request, 'main/submission.html',data)
             else:
@@ -79,7 +82,7 @@ def contact(request):
             texto=formulario.cleaned_data['message']
             formulario.save()
             ###llamada al metodo de enviar el correo
-            # send_emailC(email, texto)
+            #send_emailC(email, texto)
             messages.success(request, "Gracias por contactarme")
             print(messages)
             return redirect(to='index')
@@ -129,22 +132,30 @@ def send_emailI(foto):
         email_to='yandivd@gmail.com'
 
         #construir el mensaje
-        mensaje= MIMEText("""Se ha publicado una imagen.  """+
-                        "Nombre: "+foto.nombre+' '+"Instagram: "+
-                        foto.ig+' '+"Categoria: "+foto.categoria+
-                        ' '+"Provincia: "+foto.provincia+
-                        ' '+"Municipio: "+foto.municipio+
-                        ' '+"Escucho sobre nosotros mediante: "+foto.referencia+
-                        ' '+"Correo: "+foto.email+
-                        ' '+"Telefono: "+foto.telf+
-                        ' '+"Direccion: "+foto.direccion+
-                        ' '+"Imagen: "+"localhost:8000/"+foto.foto.url)
+        # mensaje= MIMEText("""Se ha publicado una imagen.  """+
+        #                 "Nombre: "+foto.nombre+' '+"Instagram: "+
+        #                 foto.ig+' '+"Categoria: "+foto.categoria+
+        #                 ' '+"Provincia: "+foto.provincia+
+        #                 ' '+"Municipio: "+foto.municipio+
+        #                 ' '+"Escucho sobre nosotros mediante: "+foto.referencia+
+        #                 ' '+"Correo: "+foto.email+
+        #                 ' '+"Telefono: "+foto.telf+
+        #                 ' '+"Direccion: "+foto.direccion+
+        #                 ' '+"Imagen: "+"localhost:8000/"+foto.foto.url)
+        mensaje= MIMEMultipart()
         mensaje['From'] = settings.EMAIL_HOST_USER
         mensaje['To'] = email_to
         mensaje['Subject'] = 'Te han dejado un mensaje'
+
+        content = render_to_string('send_email.html',{'foto': foto })
+
+        mensaje.attach(MIMEText(content,'html'))
 
         mailServer.sendmail(settings.EMAIL_HOST_USER,email_to, mensaje.as_string())
         print("Correo enviado")
 
     except Exception as e:
         print(e)
+
+def test(request):
+    return render(request, "send_email.html",{'foto':Imagen.objects.get(pk=1)})
