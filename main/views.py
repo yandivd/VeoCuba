@@ -3,8 +3,10 @@ from .models import *
 from .forms import *
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from django.conf import settings
 from django.contrib import messages
+from django.template.loader import render_to_string
 
 # Create your views here.
 def index(request):
@@ -60,7 +62,7 @@ def submission(request):
                 estado=estado1)
                 imagen1.save()
                 ###llamada al metodo de enviar el correo
-                #send_emailI(imagen1)
+                send_emailI(imagen1)
                 messages.success(request, "Gracias por compartir su imagen con nosotros.")
                 return redirect('index')
         else:
@@ -129,22 +131,30 @@ def send_emailI(foto):
         email_to='yandivd@gmail.com'
 
         #construir el mensaje
-        mensaje= MIMEText("""Se ha publicado una imagen.  """+
-                        "Nombre: "+foto.nombre+' '+"Instagram: "+
-                        foto.ig+' '+"Categoria: "+foto.categoria+
-                        ' '+"Provincia: "+foto.provincia+
-                        ' '+"Municipio: "+foto.municipio+
-                        ' '+"Escucho sobre nosotros mediante: "+foto.referencia+
-                        ' '+"Correo: "+foto.email+
-                        ' '+"Telefono: "+foto.telf+
-                        ' '+"Direccion: "+foto.direccion+
-                        ' '+"Imagen: "+"localhost:8000/"+foto.foto.url)
+        # mensaje= MIMEText("""Se ha publicado una imagen.  """+
+        #                 "Nombre: "+foto.nombre+' '+"Instagram: "+
+        #                 foto.ig+' '+"Categoria: "+foto.categoria+
+        #                 ' '+"Provincia: "+foto.provincia+
+        #                 ' '+"Municipio: "+foto.municipio+
+        #                 ' '+"Escucho sobre nosotros mediante: "+foto.referencia+
+        #                 ' '+"Correo: "+foto.email+
+        #                 ' '+"Telefono: "+foto.telf+
+        #                 ' '+"Direccion: "+foto.direccion+
+        #                 ' '+"Imagen: "+"localhost:8000/"+foto.foto.url)
+        mensaje= MIMEMultipart()
         mensaje['From'] = settings.EMAIL_HOST_USER
         mensaje['To'] = email_to
         mensaje['Subject'] = 'Te han dejado un mensaje'
+
+        content = render_to_string('send_email.html',{'foto': foto })
+
+        mensaje.attach(MIMEText(content,'html'))
 
         mailServer.sendmail(settings.EMAIL_HOST_USER,email_to, mensaje.as_string())
         print("Correo enviado")
 
     except Exception as e:
         print(e)
+
+def test(request):
+    return render(request, "send_email.html",{'foto':Imagen.objects.get(pk=1)})
