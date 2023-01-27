@@ -63,7 +63,7 @@ def submission(request):
                 estado=estado1)
                 imagen1.save()
                 ###llamada al metodo de enviar el correo
-                send_emailI(imagen1)
+                #send_emailI(imagen1)
                 messages.success(request, "Gracias por compartir su imagen con nosotros.")
                 return redirect('index')
         else:
@@ -82,7 +82,7 @@ def contact(request):
             texto=formulario.cleaned_data['message']
             formulario.save()
             ###llamada al metodo de enviar el correo
-            send_emailC(email, texto)
+            #send_emailC(email, texto)
             messages.success(request, "Gracias por contactarme")
             print(messages)
             return redirect(to='index')
