@@ -25,11 +25,18 @@ body{
     font-size: 30px;
 }
 .nav-link-vea{
+    font-size: 17px!important;
+    padding: 5px 14px!important;
     margin-left: 13px;
-    border-radius: 10px;
+    border-radius: 20px;
     transition-duration: 0.3s;
     transition-property: all;
     transition-timing-function: linear;
+}
+
+.nav-menu>ul>li {
+    text-align: left!important;
+    margin-bottom: 15px;
 }
 .nav-link-vea:hover{
     color: white;
@@ -45,7 +52,6 @@ body{
     font-weight: bold;
     background-color: transparent;
     text-align: left;
-    padding: 8px 10px!important;
     border: none;
 
 }
