@@ -24,18 +24,36 @@ body{
 .carrusel-veo-icon{
     font-size: 30px;
 }
-a.nav-link-vea{
-    transition-duration: 0.3s;
-    transition-property: all;
-    transition-timing-function: linear;
-}
-a.nav-link-vea:hover{
-    color: white;
+.nav-link-vea{
+    font-size: 17px!important;
+    padding: 5px 14px!important;
+    border-radius: 20px;
     transition-duration: 0.3s;
     transition-property: all;
     transition-timing-function: linear;
 }
 
+.nav-menu>ul>li {
+    text-align: left!important;
+    margin-bottom: 15px;
+}
+.nav-link-vea:hover{
+    color: white;
+    transition-duration: 0.3s;
+    transition-property: all;
+    transition-timing-function: linear;
+}
+.link-cont {
+    color: black;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: transparent;
+    text-align: left;
+    border: none;
+
+}
 a.link-index:hover{
     background-color: var(--veo-yellow);!important;
 }
@@ -46,19 +64,21 @@ a.link-abous:hover{
 
 a.link-submission:hover{
     background-color: var(--veo-green);
-    text-align: center!important;
 }
 
-a.link-cont:hover {
+.link-cont:hover {
     background-color: var(--veo-blue-dark);
 }
-a.link-cont:active {
-    background-color: var(--veo-blue-dark);
+
+.link-cont:focus {
+    color: white!important;
+    background-color: var(--veo-blue-dark) !important;
 }
+
+
 
 a.link-dropdown:hover {
-    background-color: #c8c8c8;
-    border: 1px solid black;
+    background-color: #afaeae;
 }
 
 

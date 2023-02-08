@@ -26,7 +26,6 @@
   <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css" rel="stylesheet' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
   <link href="{% static 'css-veo/main.css' %}" rel="stylesheet">
 
@@ -52,22 +51,24 @@
         <img src="../static/img/veocubaFinalWhiteBG.png" alt="logotipo" class="img-fluid ">
       </div>
 
-      <nav id="navbar" class="nav-menu navbar text-center mx-auto mt-5">
+      <nav id="navbar" class="nav-menu navbar mt-5 ms-2 text-left">
         <ul>
-          <li><a href="{% url 'index' %}" class="nav-link scrollto nav-link-vea link-index"><span>Vistas</span></a></li>
-            <li><a href="{% url 'about' %}" class="nav-link scrollto nav-link-vea link-abous"><span>La historia</span></a></li>
-            <li><a href="{% url 'submission' %}" class="nav-link scrollto nav-link-vea link-submission"><span>Submission</span></a></li>
+            <li><a href="{% url 'index' %}" class="text-left scrollto nav-link-vea link-index"><span>Vistas</span></a></li>
+            <li><a href="{% url 'about' %}" class=" scrollto nav-link-vea link-abous"><span>La historia</span></a></li>
+            <li><a href="{% url 'submission' %}" class="scrollto nav-link-vea link-submission"><span>Submission</span></a></li>
 
-          <li>
-            <div class="dropdown ">
-
-                <a href="" class="nav-link link-cont nav-link-vea dropdown-toggle" data-bs-toggle="dropdown"><span>Cont&aacute;ctenos</span></a>
-                <ul class="dropdown-menu ps-2" style="border: none">
-                    <li><a class="dropdown-item link-dropdown nav-link-vea" href="{% url 'contact' %}">Contacto</a></li>
-                    <li><a class="dropdown-item link-dropdown nav-link-vea"  href="#">Ofectas labrales</a></li>
-                </ul>
+            <li>
+            <div class="dropdown mt-0 pt-0">
+              <button class="link-cont nav-link-vea dropdown-toggle" data-bs-toggle="dropdown">
+                <span>Cont&aacute;ctenos</span>
+              </button>
+               <ul class="dropdown-menu ps-2 mt-3" style="border: none">
+                <li><a class="dropdown-item link-dropdown nav-link-vea" href="{% url 'contact' %}">Contacto</a></li>
+                <li><a class="dropdown-item link-dropdown nav-link-vea"  href="#">Ofectas labrales</a></li>
+            </ul>
             </div>
-          </li>
+            </li>
+
 
 
         </ul>
